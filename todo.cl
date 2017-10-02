@@ -17,7 +17,8 @@ deleteTask board task = do
 viewTask board task = do
 	       	    putLine 'Opening Task...'
 		    return board[task]
-		    
+
+
 main = do
        val1 <- getLine 'Enter Task: '
        val2 <- getLine 'Enter Task: '
