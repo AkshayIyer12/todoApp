@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <title>Todo App</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href = "css/style.css" rel="stylesheet">
+</head>
+<body onload="onload();">
+    <h1>Todo App</h1>
+<div id=form>
+    <div>
+        <label for="tname">Task</label>
+        <input type="text" id="tname" placeholder="What needs to be done?" required>
+    </div>
+    <div>
+        <label for="date">Date</label>
+        <input type="date" id="tdate" required>
+    </div>
+    <div>
+        <label for="msg">Message</label>
+        <textarea id="tdesc"></textarea>
+    </div>
+	<div class="button">
+  		<button type="submit" id="button" onclick="createTask()">Add Task</button>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/todo.js"></script>
+</body>
+</html>
