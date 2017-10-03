@@ -9,7 +9,7 @@
 </head>
 <body onload="onload();">
     <h1>Todo App</h1>
-<div id=form>
+<div id="form">
     <div>
         <label for="tname">Task</label>
         <input type="text" id="tname" placeholder="What needs to be done?" required>
@@ -26,7 +26,36 @@
   		<button type="submit" id="button" onclick="createTask()">Add Task</button>
 	</div>
 </div>
-
+<div id="form" class="find">
+    <div>
+        <label for="tname">Find Task: </label>
+        <input type="text" id="ftname" placeholder="Find your task by Task name.">
+    </div>
+    <div class="button">
+        <button type="submit" id="button" onclick="findTask()">Find Task</button>
+    </div>
+</div>
+<div id="form" class="update">
+    <div>
+        <label for="tname">Find Task: </label>
+        <input type="text" id="uftname" placeholder="Find your task by Task name.">
+    </div>
+    <div>
+        <label for="tname">Task</label>
+        <input type="text" id="utname" placeholder="What needs to be done?" required>
+    </div>
+    <div>
+        <label for="date">Date</label>
+        <input type="date" id="utdate" required>
+    </div>
+    <div>
+        <label for="msg">Message</label>
+        <textarea id="utdesc"></textarea>
+    </div>
+    <div class="button">
+        <button type="submit" id="button" onclick="updateTask()">Update Task</button>
+    </div>
+</div>
 <script type="text/javascript" src="js/todo.js"></script>
 </body>
 </html>
