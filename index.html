@@ -11,6 +11,10 @@
     <h1>Todo App</h1>
 <div id="form">
     <div>
+        <label for="taskId">Task Id</label>
+        <input type="number" id="tid" required>
+    </div>
+    <div>
         <label for="tname">Task</label>
         <input type="text" id="tname" placeholder="What needs to be done?" required>
     </div>
@@ -26,19 +30,21 @@
   		<button type="submit" id="button" onclick="createTask()">Add Task</button>
 	</div>
 </div>
+<br>
 <div id="form" class="find">
     <div>
-        <label for="tname">Find Task: </label>
-        <input type="text" id="ftname" placeholder="Find your task by Task name.">
+        <label for="taskId">Find Task: </label>
+        <input type="number" id="ftid" placeholder="Find your task by Task Id.">
     </div>
     <div class="button">
         <button type="submit" id="button" onclick="findTask()">Find Task</button>
     </div>
 </div>
+<br>
 <div id="form" class="update">
     <div>
-        <label for="tname">Find Task: </label>
-        <input type="text" id="uftname" placeholder="Find your task by Task name.">
+        <label for="taskId">Find Task: </label>
+        <input type="number" id="utid" placeholder="Find your task by Task Id.">
     </div>
     <div>
         <label for="tname">Task</label>
@@ -54,6 +60,16 @@
     </div>
     <div class="button">
         <button type="submit" id="button" onclick="updateTask()">Update Task</button>
+    </div>
+</div>
+<br>
+<div id="form" class="delete">
+    <div>
+        <label for="taskId">Delete Task: </label>
+        <input type="number" id="dtid" placeholder="Find your task by Task Id.">
+    </div>
+    <div class="button">
+        <button type="submit" id="button" onclick="deleteTask()">Delete Task</button>
     </div>
 </div>
 <script type="text/javascript" src="js/todo.js"></script>
