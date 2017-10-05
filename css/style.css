@@ -1,9 +1,9 @@
 h1 {
-      text-align: center;
+      margin: 20px 600px;  
     }
 #form {
   /* Just to center the form on the page */
-  margin: 0 auto;
+  margin: 0 200px;
   width: 400px;
   /* To see the outline of the form */
   padding: 1em;
@@ -13,7 +13,53 @@ h1 {
 #form div + div {
   margin-top: 1em;
 }
+#form1 {
+  /* Just to center the form on the page */
+  margin: -280px 680px;
+  width: 400px;
+  /* To see the outline of the form */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+#form1 div + div {
+  margin-top: 1em;
+}
+#form2 {
+  /* Just to center the form on the page */
+  margin: 280px 200px;
+  width: 400px;
+  /* To see the outline of the form */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+#form2 div + div {
+  margin-top: 1em;
+}
 
+#form3 {
+  /* Just to center the form on the page */
+  margin: -390px 680px;
+  width: 400px;
+  /* To see the outline of the form */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+#form3 div + div {
+  margin-top: 1em;
+}
+#form4 {
+  /* Just to center the form on the page */
+  margin: 600px auto;
+  width: 600px;
+  height: 450px;
+  /* To see the outline of the form */
+  padding: 4em;
+  border: 1px solid #000000;
+  border-radius: 1em;
+}
 label {
   /* To make sure that all labels have the same size and are properly aligned */
   display: inline-block;
