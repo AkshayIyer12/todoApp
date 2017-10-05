@@ -8,6 +8,21 @@ function onload () {
   desc = document.getElementById('tdesc')
 }
 
+let modal = document.getElementById('myModal')
+let btn = document.getElementById('myBtn')
+let span = document.getElementsByClassName('close')[0]
+btn.onclick = function () {
+  modal.style.display = 'block'
+}
+span.onclick = function () {
+  modal.style.display = 'none'
+}
+window.onclick = function (event) {
+  if (event.target === modal) {
+    modal.style.display = 'none'
+  }
+}
+
 function createTask () {
   // let tid = parseInt(Math.random() * (11 - 1) * 10)
   // let tid = hashCode(name.value)
@@ -27,83 +42,83 @@ function createTask () {
   console.log(data)
   divFunc(data, tid)
 }
-// function hashCode (tname) {
-//   let hash = 0, i, chr
-//   if (tname.length === 0) return hash
-//   for (i = 0; i < tname.length; i++) {
-//     chr = tname.charCodeAt(i)
-//     hash = ((hash << 5) - hash) + chr
-//     hash |= 0 // Convert to 32bit integer
+// // function hashCode (tname) {
+// //   let hash = 0, i, chr
+// //   if (tname.length === 0) return hash
+// //   for (i = 0; i < tname.length; i++) {
+// //     chr = tname.charCodeAt(i)
+// //     hash = ((hash << 5) - hash) + chr
+// //     hash |= 0 // Convert to 32bit integer
+// //   }
+// //   return hash
+// // }
+// function findTask (name) {
+//   try {
+//     let tid = document.getElementById('ftid').value
+//       // let tid = hashCode(name)
+//     if (data[ tid ] === undefined || data[ tid ] === null) throw new Error('Task does not exist!')
+//     console.log(data[ tid ], tid)
+//   } catch (e) {
+//     console.log(e)
+//     alert('Task does not exist')
 //   }
-//   return hash
 // }
-function findTask (name) {
-  try {
-    let tid = document.getElementById('ftid').value
-      // let tid = hashCode(name)
-    if (data[ tid ] === undefined || data[ tid ] === null) throw new Error('Task does not exist!')
-    console.log(data[ tid ], tid)
-  } catch (e) {
-    console.log(e)
-    alert('Task does not exist')
-  }
-}
 
-function updateTask () {
-  let utid = document.getElementById('utid').value
-  let name = document.getElementById('utname').value
-  let date = document.getElementById('utdate').value
-  let desc = document.getElementById('utdesc').value
-    // let findTid = hashCode(findName)
-    // let updateTid = hashCode(name)
-    // console.log(findTid, updateTid, name, desc)
-    // if (findTid === updateTid) {
-    //   data[updateTid].tdate = date
-    //   data[updateTid].tdesc = desc
-    //   console.log(data[updateTid])
-    //   return data
-    // }
-  try {
-    if (data[ utid ] === undefined) throw new Error('Task id does not exist')
-    data[ utid ].tname = name
-    data[ utid ].tdate = date
-    data[ utid ].tdesc = desc
-    let elem = document.getElementById(utid).getElementsByTagName('li')[ 0 ].childNodes
-    console.log(elem)
-    elem[ 6 ].nodeValue = data[ utid ].tname
-    elem[ 10 ].nodeValue = data[ utid ].tdate
-    elem[ 14 ].nodeValue = data[ utid ].tdesc
-  } catch (e) {
-    console.log(e)
-    alert('Task Id does not exist')
-  }
-  // if (findTid !== updateTid) {
-  //   // delete data[findTid]
-  //   data[updateTid].tid = updateTid
-  //   data[updateTid].tname = name
-  //   data[updateTid].tdate = date
-  //   data[updateTid].tdesc = desc
-  //   console.log(data[findTid])
-  //   console.log(data[updateTid])
-  //   return data
-  // }
-  console.log(data)
-}
+// function updateTask () {
+//   let utid = document.getElementById('utid').value
+//   let name = document.getElementById('utname').value
+//   let date = document.getElementById('utdate').value
+//   let desc = document.getElementById('utdesc').value
+//     // let findTid = hashCode(findName)
+//     // let updateTid = hashCode(name)
+//     // console.log(findTid, updateTid, name, desc)
+//     // if (findTid === updateTid) {
+//     //   data[updateTid].tdate = date
+//     //   data[updateTid].tdesc = desc
+//     //   console.log(data[updateTid])
+//     //   return data
+//     // }
+//   try {
+//     if (data[ utid ] === undefined) throw new Error('Task id does not exist')
+//     data[ utid ].tname = name
+//     data[ utid ].tdate = date
+//     data[ utid ].tdesc = desc
+//     let elem = document.getElementById(utid).getElementsByTagName('li')[ 0 ].childNodes
+//     console.log(elem)
+//     elem[ 6 ].nodeValue = data[ utid ].tname
+//     elem[ 10 ].nodeValue = data[ utid ].tdate
+//     elem[ 14 ].nodeValue = data[ utid ].tdesc
+//   } catch (e) {
+//     console.log(e)
+//     alert('Task Id does not exist')
+//   }
+//   // if (findTid !== updateTid) {
+//   //   // delete data[findTid]
+//   //   data[updateTid].tid = updateTid
+//   //   data[updateTid].tname = name
+//   //   data[updateTid].tdate = date
+//   //   data[updateTid].tdesc = desc
+//   //   console.log(data[findTid])
+//   //   console.log(data[updateTid])
+//   //   return data
+//   // }
+//   console.log(data)
+// }
 
-function deleteTask () {
-  let dtid = document.getElementById('dtid').value
-    // let tid = hashCode(name)
-  try {
-    if (data[ dtid ] === undefined) throw new Error('Task Id does not exist!')
-    delete data[ dtid ]
-    let deleteElem = document.getElementById(dtid)
-    deleteElem.remove()
-    console.log(data)
-  } catch (e) {
-    console.log(e)
-    alert('Task Id does not exist')
-  }
-}
+// function deleteTask () {
+//   let dtid = document.getElementById('dtid').value
+//     // let tid = hashCode(name)
+//   try {
+//     if (data[ dtid ] === undefined) throw new Error('Task Id does not exist!')
+//     delete data[ dtid ]
+//     let deleteElem = document.getElementById(dtid)
+//     deleteElem.remove()
+//     console.log(data)
+//   } catch (e) {
+//     console.log(e)
+//     alert('Task Id does not exist')
+//   }
+// }
 
 function divFunc (data, a) {
   let currentDiv = document.getElementById('form4')
@@ -129,22 +144,22 @@ function divFunc (data, a) {
       currentDiv.appendChild(ul)
     }
   }
-  // let tbl = document.createElement('table')
-  // let tblBody = document.createElement('tbody')
-  // for (let i = 0; i < Object.keys(data).length; i++) {
-  //   let row = document.createElement('tr')
-  //   console.log(data[i], data)
-  //   for (let j in data[i]) {
-  //     console.log(j)
-  //     let cell = document.createElement('td')
-  //     let cellText = document.createTextNode(data[i][j])
-  //     cell.appendChild(cellText)
-  //     row.appendChild(cell)
-  //   }
-  //   tblBody.appendChild(row)
-  // }
-  // tbl.appendChild(tblBody)
-  // console.log(currentDiv.appendChild(tbl))
-  // tbl.setAttribute('border', '10')
-  // currentDiv.innerHTML = data[a].tname
+//   // let tbl = document.createElement('table')
+//   // let tblBody = document.createElement('tbody')
+//   // for (let i = 0; i < Object.keys(data).length; i++) {
+//   //   let row = document.createElement('tr')
+//   //   console.log(data[i], data)
+//   //   for (let j in data[i]) {
+//   //     console.log(j)
+//   //     let cell = document.createElement('td')
+//   //     let cellText = document.createTextNode(data[i][j])
+//   //     cell.appendChild(cellText)
+//   //     row.appendChild(cell)
+//   //   }
+//   //   tblBody.appendChild(row)
+//   // }
+//   // tbl.appendChild(tblBody)
+//   // console.log(currentDiv.appendChild(tbl))
+//   // tbl.setAttribute('border', '10')
+//   // currentDiv.innerHTML = data[a].tname
 }
