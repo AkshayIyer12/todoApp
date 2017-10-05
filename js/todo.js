@@ -22,7 +22,6 @@ window.onclick = function (event) {
     modal.style.display = 'none'
   }
 }
-
 function createTask () {
   // let tid = parseInt(Math.random() * (11 - 1) * 10)
   // let tid = hashCode(name.value)
@@ -105,6 +104,18 @@ function createTask () {
 //   console.log(data)
 // }
 
+let btn1 = document.getElementById('myBtn1')
+btn1.onclick = function () {
+  try {
+    let li = document.getElementsByTagName('li')
+    if (li === null || li === undefined) throw new Error('Todo list is empty')
+    li[0].remove()
+  } catch (e) {
+    console.log(e)
+    alert('Todo list is empty')
+  }
+}
+
 // function deleteTask () {
 //   let dtid = document.getElementById('dtid').value
 //     // let tid = hashCode(name)
@@ -120,30 +131,29 @@ function createTask () {
 //   }
 // }
 
-function divFunc (data, a) {
-  let currentDiv = document.getElementById('form4')
-  let colon = ': '
-  let space = ' '
-  for (let i in data) {
-    console.log(document.getElementById(data[ i ].tid))
-    if (document.getElementById(data[ i ].tid) === null) {
-      let ul = document.createElement('ul')
-      ul.setAttribute('id', data[ i ].tid)
-      let li = document.createElement('li')
-      for (let j in data[ i ]) {
-        let cellText = document.createTextNode(j)
-        let coln = document.createTextNode(colon)
-        let cellText2 = document.createTextNode(data[ i ][ j ])
-        let spaced = document.createTextNode(space)
-        li.appendChild(cellText)
-        li.appendChild(coln)
-        li.appendChild(cellText2)
-        li.appendChild(spaced)
-      }
-      ul.appendChild(li)
-      currentDiv.appendChild(ul)
-    }
-  }
+// function divFunc (data, a) {
+//   let currentDiv = document.getElementById('form4')
+//   let colon = ': '
+//   let space = ' '
+//   for (let i in data) {
+//     console.log(document.getElementById(data[ i ].tid))
+//     if (document.getElementById(data[ i ].tid) === null) {    
+//       ul.setAttribute('id', data[ i ].tid)
+//       let li = document.createElement('li')
+//       for (let j in data[ i ]) {
+//         let cellText = document.createTextNode(j)
+//         let coln = document.createTextNode(colon)
+//         let cellText2 = document.createTextNode(data[ i ][ j ])
+//         let spaced = document.createTextNode(space)
+//         li.appendChild(cellText)
+//         li.appendChild(coln)
+//         li.appendChild(cellText2)
+//         li.appendChild(spaced)
+//       }
+//       ul.appendChild(li)
+//       currentDiv.appendChild(ul)
+//     }
+//   }
 //   // let tbl = document.createElement('table')
 //   // let tblBody = document.createElement('tbody')
 //   // for (let i = 0; i < Object.keys(data).length; i++) {
@@ -162,4 +172,29 @@ function divFunc (data, a) {
 //   // console.log(currentDiv.appendChild(tbl))
 //   // tbl.setAttribute('border', '10')
 //   // currentDiv.innerHTML = data[a].tname
+// }
+function divFunc (data, a) {
+  let ul = document.getElementById('form4ul')
+  let colon = ': '
+  let space = ' '
+  for (let i in data) {
+    console.log(document.getElementById(data[ i ].tid))
+    if (document.getElementById(data[ i ].tid) === null) {
+      let li = document.createElement('li')
+      li.setAttribute('id', data[ i ].tid)
+      let name = document.createTextNode(data[i].tname)
+      // for (let j in data[ i ]) {
+      //   let cellText = document.createTextNode(j)
+      //   let coln = document.createTextNode(colon)
+      //   let cellText2 = document.createTextNode(data[ i ][ j ])
+      //   let spaced = document.createTextNode(space)
+      //   li.appendChild(cellText)
+      //   li.appendChild(coln)
+      //   li.appendChild(cellText2)
+      //   li.appendChild(spaced)
+      // }
+      li.appendChild(name)
+      ul.appendChild(li)
+    }
+  }
 }
