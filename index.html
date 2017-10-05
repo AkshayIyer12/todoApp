@@ -1,80 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Todo App</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href = "css/style.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-type">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="css/style.css" rel="stylesheet">
 </head>
-<body onload="onload();">
+<body>
     <h1>Todo App</h1>
-<div id="form">
-    <div>
-        <label for="taskId">Task Id</label>
-        <input type="number" id="tid" required>
+    <div id="form">
+        <div>
+            <label for="taskId">Task Id</label> <input id="tid" required="" type="number">
+        </div>
+        <div>
+            <label for="tname">Task</label> <input id="tname" placeholder="What needs to be done?" required="" type="text">
+        </div>
+        <div>
+            <label for="date">Date</label> <input id="tdate" required="" type="date">
+        </div>
+        <div>
+            <label for="msg">Message</label> 
+            <textarea id="tdesc"></textarea>
+        </div>
+        <div class="button">
+            <button id="button" onclick="createTask()" type="submit">Add Task</button>
+        </div>
+    </div><br>
+    <div class="update" id="form1">
+        <div>
+            <label for="taskId">Find Task:</label> <input id="utid" placeholder="Find your task by Task Id." type="number">
+        </div>
+        <div>
+            <label for="tname">Task</label> <input id="utname" placeholder="What needs to be done?" required="" type="text">
+        </div>
+        <div>
+            <label for="date">Date</label> <input id="utdate" required="" type="date">
+        </div>
+        <div>
+            <label for="msg">Message</label> 
+            <textarea id="utdesc"></textarea>
+        </div>
+        <div class="button">
+            <button id="button" onclick="updateTask()" type="submit">Update Task</button>
+        </div>
+    </div><br>
+    <div class="find" id="form2">
+        <div>
+            <label for="taskId">Find Task:</label> <input id="ftid" placeholder="Find your task by Task Id." type="number">
+        </div>
+        <div class="button">
+            <button id="button" onclick="findTask()" type="submit">Find Task</button>
+        </div>
+    </div><br>
+    <div class="delete" id="form3">
+        <div>
+            <label for="taskId">Delete Task:</label> <input id="dtid" placeholder="Find your task by Task Id." type="number">
+        </div>
+        <div class="button">
+            <button id="button" onclick="deleteTask()" type="submit">Delete Task</button>
+        </div>
     </div>
-    <div>
-        <label for="tname">Task</label>
-        <input type="text" id="tname" placeholder="What needs to be done?" required>
-    </div>
-    <div>
-        <label for="date">Date</label>
-        <input type="date" id="tdate" required>
-    </div>
-    <div>
-        <label for="msg">Message</label>
-        <textarea id="tdesc"></textarea>
-    </div>
-	<div class="button">
-  		<button type="submit" id="button" onclick="createTask()">Add Task</button>
-	</div>
-</div>
-<br>
-<div id="form1" class="update">
-    <div>
-        <label for="taskId">Find Task: </label>
-        <input type="number" id="utid" placeholder="Find your task by Task Id.">
-    </div>
-    <div>
-        <label for="tname">Task</label>
-        <input type="text" id="utname" placeholder="What needs to be done?" required>
-    </div>
-    <div>
-        <label for="date">Date</label>
-        <input type="date" id="utdate" required>
-    </div>
-    <div>
-        <label for="msg">Message</label>
-        <textarea id="utdesc"></textarea>
-    </div>
-    <div class="button">
-        <button type="submit" id="button" onclick="updateTask()">Update Task</button>
-    </div>
-</div>
-<br>
-<div id="form2" class="find">
-    <div>
-        <label for="taskId">Find Task: </label>
-        <input type="number" id="ftid" placeholder="Find your task by Task Id.">
-    </div>
-    <div class="button">
-        <button type="submit" id="button" onclick="findTask()">Find Task</button>
-    </div>
-</div>
-<br>
-<div id="form3" class="delete">
-    <div>
-        <label for="taskId">Delete Task: </label>
-        <input type="number" id="dtid" placeholder="Find your task by Task Id.">
-    </div>
-    <div class="button">
-        <button type="submit" id="button" onclick="deleteTask()">Delete Task</button>
-    </div>
-</div>
-<div id="form4">
-   
-</div>
-<script type="text/javascript" src="js/todo.js"></script>
+    <div id="form4"></div>
+    <script src="js/todo.js" type="text/javascript">
+    </script>
 </body>
 </html>
