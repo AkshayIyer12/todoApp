@@ -11,9 +11,9 @@ function createTask () {
   // let tid = hashCode(name.value)
   if (tid.value === undefined) {
     tid = document.getElementById('tid')
-  name = document.getElementById('tname')
-  date = document.getElementById('tdate')
-  desc = document.getElementById('tdesc')
+    name = document.getElementById('tname')
+    date = document.getElementById('tdate')
+    desc = document.getElementById('tdesc')
   }
   tid = tid.value
   data[tid] = {}
@@ -21,7 +21,8 @@ function createTask () {
   data[tid].tname = name.value
   data[tid].tdate = date.value
   data[tid].tdesc = desc.value
-  return data
+  console.log(data)
+  divFunc(data, tid)
 }
 // function hashCode (tname) {
 //   let hash = 0, i, chr
@@ -39,7 +40,6 @@ function findTask (name) {
     // let tid = hashCode(name)
     if (data[tid] === undefined || data[tid] === null) throw new Error('Task does not exist!')
     console.log(data[tid], tid)
-    return data[tid]
   } catch (e) {
     console.log(e)
     alert('Task does not exist')
@@ -59,10 +59,15 @@ function updateTask () {
   //   console.log(data[updateTid])
   //   return data
   // }
-  console.log(data)
-  data[utid].tname = name
-  data[utid].tdate = date
-  data[utid].tdesc = desc
+  try {
+    if (data[utid] === undefined) throw new Error('Task id does not exist')
+    data[utid].tname = name
+    data[utid].tdate = date
+    data[utid].tdesc = desc
+  } catch (e) {
+    console.log(e)
+    alert('Task Id does not exist')
+  }
   // if (findTid !== updateTid) {
   //   // delete data[findTid]
   //   data[updateTid].tid = updateTid
@@ -74,12 +79,58 @@ function updateTask () {
   //   return data
   // }
   console.log(data)
-  return data
 }
 function deleteTask () {
   let dtid = document.getElementById('dtid').value
-  //let tid = hashCode(name)
-  delete data[dtid]
-  console.log(data)
-  return data
+  // let tid = hashCode(name)
+  try {
+    if (data[dtid] === undefined) throw new Error('Task Id does not exist!')
+    delete data[dtid]
+    console.log(data)
+  } catch (e) {
+    console.log(e)
+    alert('Task Id does not exist')
+  }
+}
+function divFunc (data, a) {
+  let currentDiv = document.getElementById('form4')
+  let colon = ': '
+  let space = ' '
+  for (let i in data) {
+    console.log('i ->', i)
+    let ul = document.createElement('ul')
+    let li = document.createElement('li')
+    for (let j in data[i]) {
+      console.log('j-> ', j)
+      let cellText = document.createTextNode(j)
+      let coln = document.createTextNode(colon)
+      let cellText2 = document.createTextNode(data[i][j])
+      let spaced = document.createTextNode(space)
+      li.appendChild(cellText)
+    li.appendChild(coln)
+    li.appendChild(cellText2)
+    li.appendChild(spaced)
+    }
+    ul.appendChild(li)
+    currentDiv.appendChild(ul)
+  }
+
+  // let tbl = document.createElement('table')
+  // let tblBody = document.createElement('tbody')
+  // for (let i = 0; i < Object.keys(data).length; i++) {
+  //   let row = document.createElement('tr')
+  //   console.log(data[i], data)
+  //   for (let j in data[i]) {
+  //     console.log(j)
+  //     let cell = document.createElement('td')
+  //     let cellText = document.createTextNode(data[i][j])
+  //     cell.appendChild(cellText)
+  //     row.appendChild(cell)
+  //   }
+  //   tblBody.appendChild(row)
+  // }
+  // tbl.appendChild(tblBody)
+  // console.log(currentDiv.appendChild(tbl))
+  // tbl.setAttribute('border', '10')
+  //currentDiv.innerHTML = data[a].tname
 }
