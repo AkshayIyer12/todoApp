@@ -109,7 +109,10 @@ btn1.onclick = function () {
   try {
     let li = document.getElementsByTagName('li')
     if (li === null || li === undefined) throw new Error('Todo list is empty')
+    let id = li[0].getAttribute('id')
+    console.log(id)
     li[0].remove()
+    delete data[id]
   } catch (e) {
     console.log(e)
     alert('Todo list is empty')
@@ -173,6 +176,9 @@ btn1.onclick = function () {
 //   // tbl.setAttribute('border', '10')
 //   // currentDiv.innerHTML = data[a].tname
 // }
+function showTwoOption (e) {
+  console.log(e)
+}
 function divFunc (data, a) {
   let ul = document.getElementById('form4ul')
   let colon = ': '
@@ -182,6 +188,7 @@ function divFunc (data, a) {
     if (document.getElementById(data[ i ].tid) === null) {
       let li = document.createElement('li')
       li.setAttribute('id', data[ i ].tid)
+      li.setAttribute('onclick', 'showTwoOption(event)')
       let name = document.createTextNode(data[i].tname)
       // for (let j in data[ i ]) {
       //   let cellText = document.createTextNode(j)
