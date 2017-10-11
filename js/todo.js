@@ -53,19 +53,21 @@ btn1.onclick = function () {
 
 function showTwoOption (e) {
   e.target.innerText = "CLean @ 7"
-  console.log(e.target.innerText)
+  console.log(e)
 }
 function divFunc (data, a) {
   let ul = document.getElementById('form4ul')
   for (let i in data) {
     console.log(document.getElementById(data[ i ].tid))
     if (document.getElementById(data[ i ].tid) === null) {
+      let div = document.createElement('div')
       let li = document.createElement('li')
       li.setAttribute('id', data[ i ].tid)
       li.setAttribute('onclick', 'showTwoOption(event)')
       let name = document.createTextNode(data[i].tname)
       li.appendChild(name)
-      ul.appendChild(li)
+      div.appendChild(li)
+      ul.appendChild(div)
     }
   }
 }
