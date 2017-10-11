@@ -57,8 +57,6 @@ function showTwoOption (e) {
 }
 function divFunc (data, a) {
   let ul = document.getElementById('form4ul')
-  let colon = ': '
-  let space = ' '
   for (let i in data) {
     console.log(document.getElementById(data[ i ].tid))
     if (document.getElementById(data[ i ].tid) === null) {
