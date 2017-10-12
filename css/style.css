@@ -200,4 +200,7 @@ button#myBtn1:hover {
 @keyframes fadeIn {
     from {opacity: 0;}
     to {opacity: 1;}
-}*/
+   }*/
+i {
+ float: right;
+}
