@@ -50,30 +50,46 @@ btn1.onclick = function () {
 }
 
 
-function showTwoOption (e) {
-  e.target.innerText = "CLean @ 7"
-  console.log(e)
+function updateTodo (e) {
+  let message
+  let d = window.prompt(message, 'What do you want to finish?')
+  e.path[2].childNodes[0].data = d
+  let id = e.path[2].attributes[0].nodeValue
+  data[id] = d
+  console.log(data)
 }
+
+function deleteTodo(e) {
+  let check = alert()
+  let id = e.path[2].attributes[0].nodeValue
+  console.log(id)
+  let li = document.getElementById(id)
+  li.remove()
+  delete data[id]
+  console.log(data[id])
+}
+
 function divFunc (data, a) {
   let ul = document.getElementById('form4ul')
   for (let i in data) {
     console.log(document.getElementById(data[ i ].tid))
     if (document.getElementById(data[ i ].tid) === null) {
       let div = document.createElement('div')
+      let div2 = document.createElement('div')
       let li = document.createElement('li')
       div.setAttribute('class', 'popUp')
       li.setAttribute('id', data[ i ].tid)
-      li.setAttribute('onclick', 'showTwoOption(event)')
       let name = document.createTextNode(data[i].tname)
       let edit = document.createElement('i')
       edit.setAttribute('class', 'fa fa-pencil')
-      edit.setAttribute('aria-hidden', 'true')
+      edit.setAttribute('onclick', 'updateTodo(event)')
       let close = document.createElement('i')
       close.setAttribute('class', 'fa fa-trash')
-      close.setAttribute('aria-hidden', 'true')
+      close.setAttribute('onclick', 'deleteTodo(event)')
       li.appendChild(name)
-      li.appendChild(edit)
-      li.appendChild(close)
+      div2.appendChild(edit)
+      div2.appendChild(close)
+      li.appendChild(div2)
       div.appendChild(li)
       ul.appendChild(div)
     }
