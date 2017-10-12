@@ -32,7 +32,6 @@ function createTask () {
   data[ tid ].tname = name.value
   data[ tid ].tdate = date.value
   data[ tid ].tdesc = desc.value
-  console.log(data)
   divFunc(data, tid)
 }
 let btn1 = document.getElementById('myBtn1')
@@ -62,10 +61,19 @@ function divFunc (data, a) {
     if (document.getElementById(data[ i ].tid) === null) {
       let div = document.createElement('div')
       let li = document.createElement('li')
+      div.setAttribute('class', 'popUp')
       li.setAttribute('id', data[ i ].tid)
       li.setAttribute('onclick', 'showTwoOption(event)')
       let name = document.createTextNode(data[i].tname)
+      let edit = document.createElement('i')
+      edit.setAttribute('class', 'fa fa-pencil')
+      edit.setAttribute('aria-hidden', 'true')
+      let close = document.createElement('i')
+      close.setAttribute('class', 'fa fa-trash')
+      close.setAttribute('aria-hidden', 'true')
       li.appendChild(name)
+      li.appendChild(edit)
+      li.appendChild(close)
       div.appendChild(li)
       ul.appendChild(div)
     }
