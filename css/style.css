@@ -137,7 +137,7 @@ button#myBtn, button#myBtn1 {
   font-size: xx-large;
   text-align: center;
   background-color: gold;
-  border: 2px dotted chocolate;
+  border: 2px dotted crimson;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   vertical-align: middle;
@@ -149,7 +149,7 @@ button#myBtn:hover, button#myBtn1:hover {
 }
 button#myBtn1 {
   background-color: cornsilk;
-  border: 2px dotted chocolate;
+  border: 2px dotted crimson;
   float: right;
 }
 li div {
@@ -167,4 +167,3 @@ i.fa.fa-pencil:active, i.fa.fa-trash:active {
 i.fa.fa-pencil:hover, i.fa.fa-trash:hover {
   color: greenyellow;
 }
-
