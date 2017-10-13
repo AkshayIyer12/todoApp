@@ -51,6 +51,7 @@ function assignValue (tid) {
 }
 function createTodo () {
   if (tid === undefined || tid.value === undefined) onload()
+  if(tid.value === "") throw new Error('Todo Id not entered!')
   tid = tid.value
   assignValue(tid)
   divFunc(data, tid)
