@@ -22,6 +22,26 @@ window.onclick = function (event) {
     modal.style.display = 'none'
   }
 }
+
+document.onmouseover = function(e) {
+  if(e.path[0].nodeName === "LI") {
+    let id = e.path[0].attributes[0].nodeValue
+    let li = document.getElementById(id)
+    if (li.childElementCount === 0) {
+    let edit = document.createElement('i')
+    edit.setAttribute('class', 'fa fa-pencil')
+    edit.setAttribute('onclick', 'updateTodo(event)')
+    let close = document.createElement('i')
+    close.setAttribute('class', 'fa fa-trash')
+    close.setAttribute('onclick', 'deleteTodo(event)')
+    let div2 = document.createElement('div')
+    div2.setAttribute('class', 'hidden')
+    div2.appendChild(edit)
+    div2.appendChild(close)
+    li.appendChild(div2)
+    }
+  }
+}
 function assignValue (tid) {
   data[tid] = {}
   data[tid].tid = tid
@@ -77,17 +97,9 @@ function divFunc (data, a) {
       let li = document.createElement('li')
       li.setAttribute('id', data[a].tid)
       let name = document.createTextNode(data[a].tname)
-      let edit = document.createElement('i')
-      edit.setAttribute('class', 'fa fa-pencil')
-      edit.setAttribute('onclick', 'updateTodo(event)')
-      let close = document.createElement('i')
-      close.setAttribute('class', 'fa fa-trash')
-      close.setAttribute('onclick', 'deleteTodo(event)')
       li.appendChild(name)
-      let div2 = document.createElement('div') 
-      div2.appendChild(edit)
-      div2.appendChild(close)
-      li.appendChild(div2)
       ul.appendChild(li)
     }
 }
+
+      
