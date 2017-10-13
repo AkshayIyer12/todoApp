@@ -52,10 +52,15 @@ btn1.onclick = function () {
 
 
 function updateTodo (e) {
-  let message
+  let message, oldData
   let d = window.prompt(message, 'What do you want to finish?')
-  e.path[2].childNodes[0].data = d
+  oldData = e.path[2].childNodes[0].data
   let id = e.path[2].attributes[0].nodeValue
+  if (d === null || d === "") {
+    e.path[2].childNodes[0].data = oldData
+    return
+  }
+  e.path[2].childNodes[0].data = d
   data[id] = d
  }
 
