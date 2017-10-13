@@ -22,16 +22,17 @@ window.onclick = function (event) {
     modal.style.display = 'none'
   }
 }
-function createTask () {
-  if (tid === undefined || tid.value === undefined) {
-    onload()
-  }
+function assignValue (tid) {
+  data[tid] = {}
+  data[tid].tid = tid
+  data[tid].tname = name.value
+  data[tid].tdate = date.value
+  data[tid].tdesc = desc.value
+}
+function createTodo () {
+  if (tid === undefined || tid.value === undefined) onload()
   tid = tid.value
-  data[ tid ] = {}
-  data[ tid ].tid = tid
-  data[ tid ].tname = name.value
-  data[ tid ].tdate = date.value
-  data[ tid ].tdesc = desc.value
+  assignValue(tid)
   divFunc(data, tid)
 }
 let btn1 = document.getElementById('myBtn1')
@@ -56,30 +57,21 @@ function updateTodo (e) {
   e.path[2].childNodes[0].data = d
   let id = e.path[2].attributes[0].nodeValue
   data[id] = d
-  console.log(data)
-}
+ }
 
 function deleteTodo(e) {
-  let check = alert()
   let id = e.path[2].attributes[0].nodeValue
-  console.log(id)
   let li = document.getElementById(id)
   li.remove()
   delete data[id]
-  console.log(data[id])
 }
 
 function divFunc (data, a) {
   let ul = document.getElementById('form4ul')
-  for (let i in data) {
-    console.log(document.getElementById(data[ i ].tid))
-    if (document.getElementById(data[ i ].tid) === null) {
-      let div = document.createElement('div')
-      let div2 = document.createElement('div')
+    if (document.getElementById(data[a].tid) === null) {
       let li = document.createElement('li')
-      div.setAttribute('class', 'popUp')
-      li.setAttribute('id', data[ i ].tid)
-      let name = document.createTextNode(data[i].tname)
+      li.setAttribute('id', data[a].tid)
+      let name = document.createTextNode(data[a].tname)
       let edit = document.createElement('i')
       edit.setAttribute('class', 'fa fa-pencil')
       edit.setAttribute('onclick', 'updateTodo(event)')
@@ -87,11 +79,10 @@ function divFunc (data, a) {
       close.setAttribute('class', 'fa fa-trash')
       close.setAttribute('onclick', 'deleteTodo(event)')
       li.appendChild(name)
+      let div2 = document.createElement('div') 
       div2.appendChild(edit)
       div2.appendChild(close)
       li.appendChild(div2)
-      div.appendChild(li)
-      ul.appendChild(div)
+      ul.appendChild(li)
     }
-  }
 }
