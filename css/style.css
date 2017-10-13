@@ -131,7 +131,7 @@ li {
   transition-duration: 0.4s;
   transition: all 0.2s cubic-bezier(0.66, 0.05, 0.32, 1.28);
 }
-button#myBtn {
+button#myBtn, button#myBtn1 {
   border-radius: 100%;
   padding: 15px 22px;
   font-size: xx-large;
@@ -142,27 +142,15 @@ button#myBtn {
   transition-duration: 0.4s;
   vertical-align: middle;
 }
-button#myBtn:hover {
+button#myBtn:hover, button#myBtn1:hover {
   background-color: darkblue;
   color: white;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 button#myBtn1 {
-  border-radius: 100%;
-  padding: 15px 25px;
-  font-size: xx-large;
-  text-align: center;
   background-color: cornsilk;
   border: 2px dotted chocolate;
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  vertical-align: middle;
   float: right;
-}
-button#myBtn1:hover {
-  background-color: darkblue;
-  color: white;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 li div {
   display: flex;
@@ -170,21 +158,13 @@ li div {
   flex-direction: column;
   justify-content: space-evenly;
 }
-i.fa.fa-pencil:active {
+i.fa.fa-pencil:active, i.fa.fa-trash:active {
   text-shadow: 0 5px #666;
   transform: translateY(4px);
   color: azure;
 }
 
-i.fa.fa-pencil:hover {
+i.fa.fa-pencil:hover, i.fa.fa-trash:hover {
   color: greenyellow;
-}
-i.fa.fa-trash:active {
-  text-shadow: 0 5px #666;
-  transform: translateY(4px);
-  color: azure;
 }
 
-i.fa.fa-trash:hover {
-  color: greenyellow;
-}
